@@ -18,12 +18,12 @@
                     <ul class="navbar-nav float-end ms-auto">
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="../assets/images/users/profile.png" alt="user" class="rounded-circle" width="31">
+                                <img src="../assets/images/users/<?= $user["gambar"] ?>" alt="user" class="rounded-circle" width="31">
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end user-dd animated" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="../view_pengguna/profile.php"><i class="mdi mdi-account m-r-5 m-l-5"></i>
                                     My Profile</a>
-                                <a class="dropdown-item" href="../logout.php"><i class="mdi mdi-logout m-r-5 m-l-5"></i>
+                                <a class="dropdown-item" href="../logout.php" onclick="return confirm('Yakin ingin keluar dari aplikasi?');"><i class="mdi mdi-logout m-r-5 m-l-5"></i>
                                     Logout</a>
                             </ul>
                         </li>

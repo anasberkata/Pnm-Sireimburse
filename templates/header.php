@@ -1,3 +1,15 @@
+<?php
+if (!isset($_SESSION['login'])) {
+    header("Location: ../index.php");
+    exit;
+}
+
+require "../functions.php";
+$id = $_SESSION['id'];
+$user = query("SELECT * FROM users WHERE id_user = $id")[0];
+?>
+
+
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 

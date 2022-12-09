@@ -10,7 +10,7 @@
                 </li>
                 <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="../view_pengguna/profile.php" aria-expanded="false"><i class="mdi mdi-face"></i><span class="hide-menu">Profile Saya</span></a></li>
                 </li>
-                <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="../logout.php" aria-expanded="false"><i class="mdi mdi-logout"></i><span class="hide-menu">Logout</span></a></li>
+                <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="../logout.php" onclick="return confirm('Yakin ingin keluar dari aplikasi?');" aria-expanded="false"><i class="mdi mdi-logout"></i><span class="hide-menu">Logout</span></a></li>
                 </li>
             </ul>
 

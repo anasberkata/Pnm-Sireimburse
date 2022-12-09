@@ -2,7 +2,7 @@
 session_start();
 
 if (isset($_SESSION['login'])) {
-    header("Location: view_admin/dashboard.php");
+    header("Location: view_dashboard/dashboard.php");
     exit;
 }
 
@@ -24,7 +24,12 @@ include "templates/auth_header.php";
                         <h6>PT. PERMODALAN NASIONAL MADANI</h6>
                     </div>
                     <div class="card-body">
-                        <form class="form-horizontal form-material mx-2">
+
+                        <?php if (isset($_GET["pesan"])) : ?>
+                            <p class="alert alert-danger"><?= $_GET["pesan"]; ?></p>
+                        <?php endif; ?>
+
+                        <form class="form-horizontal form-material mx-2" action="cek_login.php" method="POST">
                             <div class="form-group">
                                 <label class="col-md-12">Username</label>
                                 <div class="col-md-12">
@@ -39,7 +44,7 @@ include "templates/auth_header.php";
                             </div>
                             <div class="form-group">
                                 <div class="col-sm-12">
-                                    <button class="btn btn-primary text-white">Login</button>
+                                    <button type="submit" class="btn btn-primary text-white">Login</button>
                                 </div>
                             </div>
                         </form>

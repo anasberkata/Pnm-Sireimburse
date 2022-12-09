@@ -1,15 +1,6 @@
 <?php
 session_start();
 include "../templates/header.php";
-
-$reimburse = query("SELECT * FROM reimburse");
-$reimburse_acc = query("SELECT * FROM reimburse WHERE id_status = 1");
-$users = query("SELECT * FROM users");
-$nominal = query("SELECT SUM(nominal) AS total_nominal FROM reimburse");
-
-$total_reimburse = count($reimburse);
-$total_reimburse_acc = count($reimburse_acc);
-$total_users = count($users);
 ?>
 
 <div class="page-breadcrumb">
@@ -41,7 +32,7 @@ $total_users = count($users);
                 </div>
                 <div class="card-body">
                     <p class="card-subtitle">
-                        Jumlah Data Reimburse Terdata : <b><?= $total_reimburse ?></b> Data.
+                        Jumlah Data Reimburse Terdata : <b>100</b> Data.
                     </p>
                 </div>
             </div>
@@ -54,7 +45,7 @@ $total_users = count($users);
                 </div>
                 <div class="card-body">
                     <p class="card-subtitle">
-                        Jumlah Data Reimburse Diapprove : <b><?= $total_reimburse_acc ?></b> Data.
+                        Jumlah Data Reimburse Diapprove : <b>80</b> Data.
                     </p>
                 </div>
             </div>
@@ -67,7 +58,7 @@ $total_users = count($users);
                 </div>
                 <div class="card-body">
                     <p class="card-subtitle">
-                        Jumlah Nominal Terbayar : <b>Rp. <?= number_format($nominal["total_nominal"], 0, ',', '.'); ?>,-</b>.
+                        Jumlah Nominal Terbayar : <b>Rp. 80.000</b>.
                     </p>
                 </div>
             </div>
@@ -80,7 +71,7 @@ $total_users = count($users);
                 </div>
                 <div class="card-body">
                     <p class="card-subtitle">
-                        Jumlah Karyawan Tedaftar : <b><?= $total_users ?></b> Karyawan.
+                        Jumlah Karyawan Tedaftar : <b>66</b> Karyawan.
                     </p>
                 </div>
             </div>
