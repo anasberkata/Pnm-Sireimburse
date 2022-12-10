@@ -15,6 +15,14 @@
 <!--Custom JavaScript -->
 <script src="../assets/js/custom.js"></script>
 <!--This page JavaScript -->
+
+<script src="../vendor/simple-datatables/simple-datatables.js"></script>
+<script>
+    // Simple Datatable
+    let table1 = document.querySelector('#table1');
+    let dataTable = new simpleDatatables.DataTable(table1);
+</script>
+
 <!--chartis chart-->
 <script src="../assets/libs/chartist/dist/chartist.min.js"></script>
 <script src="../assets/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script>

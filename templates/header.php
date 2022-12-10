@@ -5,8 +5,16 @@ if (!isset($_SESSION['login'])) {
 }
 
 require "../functions.php";
+
 $id = $_SESSION['id'];
-$user = query("SELECT * FROM users WHERE id_user = $id")[0];
+$user = query(
+    "SELECT * FROM users
+    INNER JOIN jabatan ON users.jabatan = jabatan.id_jabatan
+    INNER JOIN user_role ON users.role_id = user_role.id_role
+    WHERE id_user = $id"
+)[0];
+
+ini_set('display_errors', 1); //Atauerror_reporting(E_ALL && ~E_NOTICE);
 ?>
 
 
@@ -30,6 +38,8 @@ $user = query("SELECT * FROM users WHERE id_user = $id")[0];
     <link href="../assets/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="../assets/css/style.min.css" rel="stylesheet">
+    <!-- Datatables -->
+    <link href="../vendor/simple-datatables/style.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -40,12 +50,12 @@ $user = query("SELECT * FROM users WHERE id_user = $id")[0];
 
 <body>
 
-    <div class="preloader">
+    <!-- <div class="preloader">
         <div class="lds-ripple">
             <div class="lds-pos"></div>
             <div class="lds-pos"></div>
         </div>
-    </div>
+    </div> -->
 
     <div id="main-wrapper" data-layout="vertical" data-navbarbg="skin5" data-sidebartype="full" data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full">
 

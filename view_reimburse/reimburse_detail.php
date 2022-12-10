@@ -1,6 +1,15 @@
 <?php
 session_start();
 include "../templates/header.php";
+
+$id_reimburse = $_GET["id_reimburse"];
+$reimburse = query(
+    "SELECT * FROM reimburse
+    INNER JOIN users ON reimburse.id_karyawan = users.id_user
+    INNER JOIN status ON reimburse.id_status = status.id_status
+    WHERE id_reimburse = $id_reimburse
+    "
+)[0];
 ?>
 
 <div class="page-breadcrumb">
@@ -12,11 +21,11 @@ include "../templates/header.php";
                     <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
                 </ol>
             </nav> -->
-            <h1 class="mb-0 fw-bold">Profile</h1>
+            <h1 class="mb-0 fw-bold">Reimburse</h1>
         </div>
         <div class="col-6">
             <div class="text-end upgrade-btn">
-                <a href="profile_edit.php" class="btn btn-primary text-white">Edit Profile</a>
+                <a href="reimburse.php" class="btn btn-primary text-white">Kembali</a>
             </div>
         </div>
     </div>
@@ -28,54 +37,51 @@ include "../templates/header.php";
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">Profile Saya</h4>
+                    <h4 class="card-title">Detail Reimburse</h4>
                 </div>
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-lg-4">
+                        <div class="col-lg-6">
                             <center>
-                                <img src="../assets/images/users/<?= $user["gambar"]; ?>" class="rounded-circle" width="150" />
-                                <h4 class="card-title m-t-10"><?= $user["nama"]; ?></h4>
-                                <h6 class="card-subtitle"><?= $user["nama_jabatan"]; ?></h6>
+                                <img src="../assets/images/users/<?= $user["gambar"]; ?>" class="img-thumbnail" width="100%" />
                             </center>
                         </div>
-                        <div class="col-lg-8">
+                        <div class="col-lg-6">
                             <div class="card mt-3">
                                 <ul class="list-group list-group-flush">
                                     <li class="list-group-item">
                                         <div class="row">
-                                            <div class="col-lg-4 col-4">Email</div>
-                                            <div class="col-lg-8 col-8">: <?= $user["email"]; ?></div>
+                                            <div class="col-lg-4 col-4">Karyawan</div>
+                                            <div class="col-lg-8 col-8">: <?= $reimburse["nama"]; ?></div>
                                         </div>
                                     </li>
                                     <li class="list-group-item">
                                         <div class="row">
-                                            <div class="col-lg-4 col-4">Username</div>
-                                            <div class="col-lg-8 col-8">: <?= $user["username"]; ?></div>
+                                            <div class="col-lg-4 col-4">Flat nomor kendaraan</div>
+                                            <div class="col-lg-8 col-8">: <?= $reimburse["flat"]; ?></div>
                                         </div>
                                     </li>
                                     <li class="list-group-item">
                                         <div class="row">
-                                            <div class="col-lg-4 col-4">Whatsapp</div>
-                                            <div class="col-lg-8 col-8">: <a href="https://wa.me/62<?= $user["phone"]; ?>" target="blank">+62<?= $user["phone"]; ?></a></div>
+                                            <div class="col-lg-4 col-4">Nominal (Rp.)</div>
+                                            <div class="col-lg-8 col-8">: Rp. <?= number_format($reimburse["nominal"], 0, ',', '.'); ?>,-</div>
                                         </div>
                                     </li>
                                     <li class="list-group-item">
                                         <div class="row">
-                                            <div class="col-lg-4 col-4">Aktif Sejak</div>
-                                            <div class="col-lg-8 col-8">: <?= $user["date_created"]; ?></div>
+                                            <div class="col-lg-4 col-4">Tanggal</div>
+                                            <div class="col-lg-8 col-8">: <?= date('d F Y', strtotime($reimburse["tanggal"])); ?></div>
                                         </div>
                                     </li>
                                     <li class="list-group-item">
                                         <div class="row">
-                                            <div class="col-lg-4 col-4">Status</div>
-                                            <div class="col-lg-8 col-8">: <?php
-                                                                            if ($user["is_active"] == 1) {
-                                                                                echo "Aktif";
-                                                                            } else {
-                                                                                echo "Tidak Aktif";
-                                                                            }
-                                                                            ?></div>
+                                            <div class="col-lg-12 col-12">
+                                                <?php if ($reimburse["id_status"] == 2) : ?>
+                                                    <a href="reimburse_acc.php?id_reimburse=<?= $id_reimburse; ?>" class="btn btn-success text-white my-3" onclick="return confirm('Yakin untuk meng-approve reimburse ini?');">Approve</a>
+                                                <?php else : ?>
+                                                    <p><i class="mdi mdi-check-circle text-success"> Sudah di Approve</i></p>
+                                                <?php endif; ?>
+                                            </div>
                                         </div>
                                     </li>
                                 </ul>

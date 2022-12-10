@@ -5,7 +5,7 @@ include "../templates/header.php";
 $reimburse = query("SELECT * FROM reimburse");
 $reimburse_acc = query("SELECT * FROM reimburse WHERE id_status = 1");
 $users = query("SELECT * FROM users");
-$nominal = query("SELECT SUM(nominal) AS total_nominal FROM reimburse");
+$nominal = query("SELECT SUM(nominal) AS total_nominal FROM reimburse")[0];
 
 $total_reimburse = count($reimburse);
 $total_reimburse_acc = count($reimburse_acc);
