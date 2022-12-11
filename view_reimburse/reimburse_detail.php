@@ -43,7 +43,7 @@ $reimburse = query(
                     <div class="row">
                         <div class="col-lg-6">
                             <center>
-                                <img src="../assets/images/users/<?= $user["gambar"]; ?>" class="img-thumbnail" width="100%" />
+                                <img src="../assets/images/reimburse/<?= $reimburse["gambar_bukti"]; ?>" class="img-thumbnail" width="100%" />
                             </center>
                         </div>
                         <div class="col-lg-6">
@@ -77,7 +77,9 @@ $reimburse = query(
                                         <div class="row">
                                             <div class="col-lg-12 col-12">
                                                 <?php if ($reimburse["id_status"] == 2) : ?>
-                                                    <a href="reimburse_acc.php?id_reimburse=<?= $id_reimburse; ?>" class="btn btn-success text-white my-3" onclick="return confirm('Yakin untuk meng-approve reimburse ini?');">Approve</a>
+                                                    <?php if ($user["role_id"] == 1) : ?>
+                                                        <a href="reimburse_acc.php?id_reimburse=<?= $id_reimburse; ?>" class="btn btn-success text-white my-3" onclick="return confirm('Yakin untuk meng-approve reimburse ini?');">Approve</a>
+                                                    <?php endif; ?>
                                                 <?php else : ?>
                                                     <p><i class="mdi mdi-check-circle text-success"> Sudah di Approve</i></p>
                                                 <?php endif; ?>

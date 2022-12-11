@@ -21,8 +21,8 @@ if (!isset($_POST["cari"])) {
         );
     }
 } else {
-    $tanggal = $_POST["tanggal"];
     if ($user["role_id"] == 1) {
+        $tanggal = $_POST["tanggal"];
         $reimburse = query(
             "SELECT * FROM reimburse
             INNER JOIN users ON reimburse.id_karyawan = users.id_user
@@ -31,17 +31,20 @@ if (!isset($_POST["cari"])) {
     "
         );
     } else {
+        $tanggal = $_POST["tanggal"];
         $id_user = $user["id_user"];
         $reimburse = query(
             "SELECT * FROM reimburse
             INNER JOIN users ON reimburse.id_karyawan = users.id_user
             INNER JOIN status ON reimburse.id_status = status.id_status
             WHERE id_user = $id_user
-            WHERE tanggal LIKE '%$tanggal%'
+            AND tanggal LIKE '%$tanggal%'
     "
         );
     }
 }
+
+
 
 ?>
 
