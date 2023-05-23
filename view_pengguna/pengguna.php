@@ -72,23 +72,38 @@ $users = query(
                             </thead>
                             <tbody>
                                 <?php $i = 1; ?>
-                                <?php foreach ($users as $u) : ?>
+                                <?php foreach ($users as $u): ?>
                                     <tr>
-                                        <th class="align-middle" scope="row"><?= $i; ?></th>
+                                        <th class="align-middle" scope="row">
+                                            <?= $i; ?>
+                                        </th>
                                         <td class="align-middle">
-                                            <img src="../assets/images/users/<?= $u["gambar"] ?>" alt="profile_pic" class="img-thumbnail">
+                                            <img src="../assets/images/users/<?= $u["gambar"] ?>" alt="profile_pic"
+                                                class="img-thumbnail">
                                         </td>
-                                        <td class="align-middle"><?= $u["nama"] ?></td>
-                                        <td class="align-middle"><?= $u["nama_jabatan"] ?></td>
-                                        <td class="align-middle"><?= $u["email"] ?></td>
-                                        <td class="align-middle"><?= $u["username"] ?></td>
+                                        <td class="align-middle">
+                                            <?= $u["nama"] ?>
+                                        </td>
+                                        <td class="align-middle">
+                                            <?= $u["nama_jabatan"] ?>
+                                        </td>
+                                        <td class="align-middle">
+                                            <?= $u["email"] ?>
+                                        </td>
+                                        <td class="align-middle">
+                                            <?= $u["username"] ?>
+                                        </td>
                                         <td class="align-middle">
                                             <a href="https://wa.me/62<?= $u["phone"]; ?>" target="blank">+62<?= $u["phone"]; ?></a>
                                         </td>
                                         <td class="align-middle">
                                             <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                                <a href="pengguna_edit.php?id=<?= $u["id_user"] ?>" class="btn btn-info text-white mt-1"><i class="mdi mdi-pencil"></i></a>
-                                                <a href="pengguna_delete.php?id=<?= $u["id_user"] ?>" class="btn btn-danger text-white mt-1" onclick="return confirm('Yakin ingin menghapus <?= $u['nama']; ?>?');"><i class="mdi mdi-delete"></i></a>
+                                                <a href="pengguna_edit.php?id=<?= $u["id_user"] ?>"
+                                                    class="btn btn-info text-white mt-1"><i class="mdi mdi-pencil"></i></a>
+                                                <a href="pengguna_delete.php?id=<?= $u["id_user"] ?>"
+                                                    class="btn btn-danger text-white mt-1"
+                                                    onclick="return confirm('Yakin ingin menghapus <?= $u['nama']; ?>?');"><i
+                                                        class="mdi mdi-delete"></i></a>
                                             </div>
                                         </td>
                                     </tr>

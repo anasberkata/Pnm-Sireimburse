@@ -57,13 +57,19 @@ if (isset($_POST["edit_pengguna"])) {
                     <div class="row">
                         <div class="col-lg-4">
                             <center>
-                                <img src="../assets/images/users/<?= $pengguna["gambar"]; ?>" class="rounded-circle" width="150" />
-                                <h4 class="card-title m-t-10"><?= $pengguna["nama"]; ?></h4>
-                                <h6 class="card-subtitle"><?= $pengguna["nama_jabatan"]; ?></h6>
+                                <img src="../assets/images/users/<?= $pengguna["gambar"]; ?>" class="rounded-circle"
+                                    width="150" />
+                                <h4 class="card-title m-t-10">
+                                    <?= $pengguna["nama"]; ?>
+                                </h4>
+                                <h6 class="card-subtitle">
+                                    <?= $pengguna["nama_jabatan"]; ?>
+                                </h6>
                             </center>
                         </div>
                         <div class="col-lg-8">
-                            <form class="form-horizontal form-material mx-2" action="" method="POST" enctype="multipart/form-data">
+                            <form class="form-horizontal form-material mx-2" action="" method="POST"
+                                enctype="multipart/form-data">
 
                                 <input type="hidden" value="<?= $pengguna["id_user"] ?>" name="id">
                                 <input type="hidden" value="<?= $pengguna["gambar"]; ?>" name="gambar_lama">
@@ -71,13 +77,15 @@ if (isset($_POST["edit_pengguna"])) {
                                 <div class="form-group">
                                     <label class="col-md-12">Foto</label>
                                     <div class="col-md-12">
-                                        <input type="file" value="<?= $pengguna["gambar"] ?>" class="form-control form-control-line" name="gambar">
+                                        <input type="file" value="<?= $pengguna["gambar"] ?>"
+                                            class="form-control form-control-line" name="gambar">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-md-12">Nama Lengkap</label>
                                     <div class="col-md-12">
-                                        <input type="text" value="<?= $pengguna["nama"] ?>" class="form-control form-control-line" name="nama">
+                                        <input type="text" value="<?= $pengguna["nama"] ?>"
+                                            class="form-control form-control-line" name="nama">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -85,7 +93,7 @@ if (isset($_POST["edit_pengguna"])) {
                                     <div class="col-sm-12">
                                         <select class="form-select shadow-none form-control-line" name="jabatan">
                                             <option value="<?= $pengguna["id_jabatan"] ?>"><?= $pengguna["nama_jabatan"] ?></option>
-                                            <?php foreach ($jabatan as $j) : ?>
+                                            <?php foreach ($jabatan as $j): ?>
                                                 <option value="<?= $j["id_jabatan"] ?>"><?= $j["nama_jabatan"] ?></option>
                                             <?php endforeach; ?>
                                         </select>
@@ -94,25 +102,30 @@ if (isset($_POST["edit_pengguna"])) {
                                 <div class="form-group">
                                     <label class="col-md-12">Email</label>
                                     <div class="col-md-12">
-                                        <input type="email" value="<?= $pengguna["email"] ?>" class="form-control form-control-line" name="email">
+                                        <input type="email" value="<?= $pengguna["email"] ?>"
+                                            class="form-control form-control-line" name="email">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-md-12">Username</label>
                                     <div class="col-md-12">
-                                        <input type="text" value="<?= $pengguna["username"] ?>" class="form-control form-control-line" name="username">
+                                        <input type="text" value="<?= $pengguna["username"] ?>"
+                                            class="form-control form-control-line" name="username">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-md-12">Password <span class="text-danger small">(Abaikan jika tidak ingin diubah)</span></label>
+                                    <label class="col-md-12">Password <span class="text-danger small">(Abaikan jika
+                                            tidak ingin diubah)</span></label>
                                     <div class="col-md-12">
-                                        <input type="password" value="<?= $pengguna["password"] ?>" class="form-control form-control-line" name="password">
+                                        <input type="password" value="<?= $pengguna["password"] ?>"
+                                            class="form-control form-control-line" name="password">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-md-12">Whatsapps</label>
                                     <div class="col-md-12">
-                                        <input type="text" value="<?= $pengguna["phone"] ?>" class="form-control form-control-line" name="phone">
+                                        <input type="text" value="<?= $pengguna["phone"] ?>"
+                                            class="form-control form-control-line" name="phone">
                                     </div>
                                 </div>
 
